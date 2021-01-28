@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const ProductRoute = require('./Routes/Product.route');
+require('./helpers/init_mongodb');
 
 const app = express();
 
