@@ -15,10 +15,10 @@ Content-Type: application/json
 GET http://localhost:3000/products/601369c39104742b60c12b94
 
 ####update a single product
-PATCH http://localhost:3000/products/{id}
+PATCH http://localhost:3000/products/60136b0fbc4f864b0c7b6181
 
 ####delete a single product
-DELETE http://localhost:3000/products/{id}
+DELETE http://localhost:3000/products/60136dc840d80e0794aabb90
 
 ####error route
 GET http://localhost:3000/xyz
