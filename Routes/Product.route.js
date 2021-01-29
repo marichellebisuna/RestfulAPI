@@ -5,7 +5,7 @@ const Product = require('../Models/Product.model');
 router.get('/', async (req, res, next) => {
   try {
     // to list all the product with just name and price only
-    const result = await Product.find({}, { name: 1, price: 1, _id: 0 });
+    const result = await Product.find({}, { __v: 0 });
 
     // to list all products of specific price only
     // const result = await Product.find({ price: 499 }, {});
@@ -38,8 +38,15 @@ router.post('/', async (req, res, next) => {
   //   .catch((err) => console.log(err.message));
 });
 
-router.get('/:id', (req, res, next) => {
-  res.send('fetch single product');
+//get a product by id
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const result = await Product.findById(id, { __v: 0 });
+    res.send(result);
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 router.patch('/:id', (req, res, next) => {
