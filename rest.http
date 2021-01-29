@@ -4,6 +4,12 @@ GET http://localhost:3000/products/
 
 ####create a products
 POST http://localhost:3000/products/
+Content-Type: application/json
+
+{
+ "name":"iPhone 11",
+ "price":699
+}
 
 ####fetch a single product
 GET http://localhost:3000/products/{id}
@@ -14,6 +20,7 @@ PATCH http://localhost:3000/products/{id}
 ####delete a single product
 DELETE http://localhost:3000/products/{id}
 
-
+####error route
+GET http://localhost:3000/xyz
 
 
