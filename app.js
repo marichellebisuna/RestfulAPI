@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const ProductRoute = require('./Routes/Product.route');
 require('./helpers/init_mongodb');
+const createError = require('http-errors');
 
 const app = express();
 
@@ -13,9 +14,10 @@ app.use('/products', ProductRoute);
 
 //error middleware
 app.use((req, res, next) => {
-  const err = new Error('Page Not Found.');
-  err.status = 404;
-  next(err);
+  // const err = new Error('Page Not Found.');
+  // err.status = 404;
+  // next(err);
+  next(createError(404, 'Page Not found.'));
 });
 //error handler
 app.use((err, re, res, next) => {

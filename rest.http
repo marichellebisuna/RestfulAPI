@@ -11,11 +11,18 @@ Content-Type: application/json
  "price":499
 }
 
-####fetch a single product
-GET http://localhost:3000/products/601369c39104742b60c12b94
+####fetch a single product by id
+GET http://localhost:3000/products/60136b0fbc4f864b0c7b6181a
 
 ####update a single product
 PATCH http://localhost:3000/products/60136b0fbc4f864b0c7b6181
+Content-Type: application/json
+
+{
+ "name":"iPhone 8 Pro",
+ "price":1599
+}
+
 
 ####delete a single product
 DELETE http://localhost:3000/products/60136dc840d80e0794aabb90
