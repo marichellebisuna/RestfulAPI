@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../Models/Product.model');
 
+//to get all products
 router.get('/', async (req, res, next) => {
   try {
     // to list all the product with just name and price only
@@ -16,6 +17,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+//to create a new product
 router.post('/', async (req, res, next) => {
   try {
     const product = new Product(req.body);
@@ -49,12 +51,20 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+//to update a product
 router.patch('/:id', (req, res, next) => {
   res.send('update a single product');
 });
 
-router.delete('/:id', (req, res, next) => {
-  res.send('delete a single product');
+//to delete a product
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const result = await Product.findByIdAndDelete(id);
+    res.send(result);
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 module.exports = router;
